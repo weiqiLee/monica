@@ -48,9 +48,18 @@ Route::middleware(['auth', '2fa'])->group(function () {
 
     Route::group(['as' => 'people'], function () {
 
+        // Contact lists
         Route::get('/people', 'ContactsController@index')->name('.index');
-        Route::get('/people/all', 'ContactsController@all')->name('.index');
+        Route::get('/people/all', 'ContactsController@indexAll');
+        Route::get('/people/added', 'ContactsController@indexAdded');
+        Route::get('/people/activity', 'ContactsController@indexActivity');
+        Route::get('/people/untagged', 'ContactsController@indexUntagged');
+        Route::get('/people/stayintouch', 'ContactsController@indexStayintouch');
+        Route::get('/people/calendar', 'ContactsController@indexCalendar');
+        Route::get('/people/unseen', 'ContactsController@indexUnseen');
+        Route::get('/people/nocommunication', 'ContactsController@indexNocommunication');
 
+        // Add Contact
         Route::get('/people/add', 'ContactsController@create')->name('.create');
         Route::get('/people/notfound', 'ContactsController@missing')->name('.missing');
         Route::post('/people', 'ContactsController@store')->name('.store');
