@@ -3,7 +3,7 @@
 @section('content')
 
 <p><a href="">View all your contacts</a></p>
-<p><a href="">Contacts you've added recently</a></p>
+<p><a href="/people/added">Contacts you've added recently</a></p>
 
 activity
 <p><a href="">Contacts you have the most activity with</a></p>
