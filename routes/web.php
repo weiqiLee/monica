@@ -47,7 +47,10 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/changelog', 'ChangelogController@index');
 
     Route::group(['as' => 'people'], function () {
+
         Route::get('/people', 'ContactsController@index')->name('.index');
+        Route::get('/people/all', 'ContactsController@all')->name('.index');
+
         Route::get('/people/add', 'ContactsController@create')->name('.create');
         Route::get('/people/notfound', 'ContactsController@missing')->name('.missing');
         Route::post('/people', 'ContactsController@store')->name('.store');

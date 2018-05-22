@@ -22,7 +22,21 @@ class ContactsController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
+    {
+        $tags = auth()->user()->account->tags;
+
+        return view('people.list.index')
+            ->withTags($tags);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function all(Request $request)
     {
         $user = $request->user();
         $sort = $request->get('sort') ?? $user->contacts_sort_order;
